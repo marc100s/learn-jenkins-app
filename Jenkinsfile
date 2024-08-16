@@ -14,7 +14,14 @@ pipeline {
                     ls -la
                     node --version
                     npm --version
+                    
+                    # Install dependencies and update package-lock.json
+                    npm install
+
+                    # Perform a clean install using the updated package-lock.json
                     npm ci
+                    
+                    # Build the project
                     npm run build
                     ls -la
                 '''
